@@ -18,7 +18,15 @@ python main.py
 1. پروژه را در GitHub آپلود کن.
 2. در Railway: **New Project → Deploy from GitHub repo** و همین ریپو را انتخاب کن.
 3. در تب **Variables** مقادیر `.env.example` را وارد کن (حداقل: `API_ID`, `API_HASH`, `BOT_TOKEN`, `DATABASE_URL`, `OWNER_TG_ID`).
-4. Railway با `railway.json` / `Procfile` خودش `python main.py` را اجرا می‌کند. سرویس از نوع worker است و پورت لازم ندارد.
+4. Railway با `railway.json` از روی `Dockerfile` ساخته و اجرا می‌کند. سرویس از نوع worker است و پورت لازم ندارد. `start.sh` و سیاست `restartPolicyType: ALWAYS` ربات را همیشه زنده نگه می‌دارند.
+
+## اجرا با Docker
+
+```bash
+cp .env.example .env    # مقادیر را پر کن
+docker compose up -d --build
+docker compose logs -f
+```
 
 ## دستورات تلگرام
 

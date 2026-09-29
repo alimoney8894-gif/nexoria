@@ -1,0 +1,13 @@
+services:
+  nexoria-self:
+    build: .
+    container_name: nexoria-self
+    restart: always
+    env_file: .env
+    environment:
+      TZ: Asia/Tehran
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
